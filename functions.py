@@ -3,6 +3,7 @@ from user_class import User
 from resources import enemies
 
 player = User('')
+time_count = 0
 
 def normalize_text(txt):
   normal_text = txt.lower()
@@ -22,13 +23,15 @@ def leave():
 
 def rowdy_road_init():
   
-  slow_type("You set out on the Rowdy Road, a long and winding path through the wildlands of outer NewFoundLand.",90)
-  slow_type("In this realm there is but one goal - travel the Rowdy Road to its bitter end and achieve immortality by finding Captain Kidd's treasure at Oak Island.",90)
+  slow_type("You set out on the Rowdy Road, a long and winding path through the wildlands of outer NewFoundLand.",150)
+  slow_type("In this realm there is but one goal - travel the Rowdy Road to its bitter end and achieve immortality by finding Captain Kidd's treasure at Oak Island.",150)
 
-  slow_type("What is you name?",90)
+  slow_type("What is you name?",150)
   player = User(input())
   slow_type(f"Your journey begins now, {player.name}!",90)
   return player
+
+
 
 
 
@@ -61,15 +64,15 @@ def combat(enemy, enemy_hp, user_hp):
         user_hp = user_hp - hurt
         slow_type(f"you are now at {user_hp}",speed)
     if action == "3":
-      slow_type("You cannot escape!",speed)
-      hurt = random.randint(0,10)
-      user_hp = user_hp - hurt
-      slow_type(f"you are now at {user_hp}",speed)
+        dodge_chance = random.randint(0,10)
+        if dodge_chance > 8:
+            slow_type("You cannot escape!",speed)
+            hurt = random.randint(0,10)
+            user_hp = user_hp - hurt
+            slow_type(f"you are now at {user_hp}",speed)
+        else:
+            return slow_type(f"You have escaped the {enemy}",speed)
     if user_hp <= 0:
       return slow_type("You have died",speed)
   if enemy_hp <= 0:
     return slow_type(f"You defeated the {enemy}",speed)
-
-
-
-  
