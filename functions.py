@@ -23,8 +23,8 @@ def leave():
 
 def rowdy_road_init():
   
-  slow_type("You set out on the Rowdy Road, a long and winding path through the wildlands of outer NewFoundLand.",150)
-  slow_type("In this realm there is but one goal - travel the Rowdy Road to its bitter end and achieve immortality by finding Captain Kidd's treasure at Oak Island.",150)
+  slow_type("You set out on the Rowdy Road, a long and winding path through outer Newfoundland.",150)
+  slow_type("There is but one goal - travel the Rowdy Road to its bitter end and achieve immortality by finding Captain Kidd's treasure at Oak Island.",150)
 
   slow_type("What is you name?",150)
   player = User(input())

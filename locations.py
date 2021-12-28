@@ -56,8 +56,8 @@ def roadside():
     slow_type('You find a car by the side of the road',90)
     slow_type('What will you do?',90)
     res = input()
-    print(TextBlob(res).sentiment.polarity)
-    if TextBlob(res).sentiment.polarity > 0.25:
+    #print(TextBlob(res).sentiment.polarity)
+    if TextBlob(res).sentiment.polarity + 0.05 > 0.10:
         slow_type('You take the car',90)
         car_adventure(max_miles)
     else:
@@ -80,6 +80,7 @@ def roadside():
 
 
 def ongoing():
+    time_count = 0
     while time_count < 100:
         flip = random.randint(1,10)
         print(flip)
@@ -91,3 +92,5 @@ def ongoing():
             pass
         else:
             print("You walk down the road...")
+        input()
+        time_count += 1
